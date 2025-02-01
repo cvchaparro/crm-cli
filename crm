@@ -107,7 +107,7 @@ async function main() {
 
     const database = await crmCli.data.connectCrmDatabase();
     if (process.argv[2] === 'init-crm') {
-        await database.create();
+        await database.open();
         console.log('Done.');
         process.exit(0);
     }

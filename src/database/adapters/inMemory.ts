@@ -45,7 +45,7 @@ export class InMemorySession implements DatabaseSession {
   }
 
   async addCompany(companyAttributes: Company): Promise<Company | { error: string }> {
-      if (!this.findCompanyByName(companyAttributes.name)) {
+      if (!(await this.findCompanyByName(companyAttributes.name))) {
           this.isModified = true;
           const company = newCompany(companyAttributes);
           this.database.companies.push(company);

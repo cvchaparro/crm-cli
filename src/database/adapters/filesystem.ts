@@ -16,7 +16,7 @@ export class FileSystemSession extends InMemorySession {
           console.log("FileSystemDatabaseSession.autoClose(timeout reached)");
           this.autoCloseTimeout = undefined;
           this.close();
-      }, 10000); // auto-close after 10s
+      }, 30000); // auto-close after 30s
   }
 
   async close(): Promise<void> {

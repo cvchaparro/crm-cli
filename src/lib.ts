@@ -127,7 +127,6 @@ export async function addContact(database: DatabaseSession, attributes: Partial<
         if ('error' in result) {
           return result;
         }
-        console.log('Contact added.');
         return contact;
     }
     else {
@@ -259,7 +258,7 @@ export async function editConfig(database: DatabaseSession, attributes: Partial<
 
 /**
  * Here are the available template fields.
- * 
+ *
  *  - {{EMAIL}} .............. Contact's raw email (example: user@example.com
  *  - {{FULL_EMAIL}} ......... Contact's full email (example: Jon Snow <jon.snow@example.com>)
  *  - {{FULL_NAME}} .......... Contact's full name (example: Henry Ford)

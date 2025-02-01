@@ -102,10 +102,10 @@ export async function editApp(database: DatabaseSession, appName: string, attrib
 export async function addContact(database: DatabaseSession, attributes: Partial<Contact & { company?: string | undefined; }>): Promise<Contact | {error: string}> {
     // If name is filled and there isn't a company with the given name.
     // Add it and save
-    if (!attributes.company || !attributes.email) {
-      return {error: 'missing company or email'};
+    if (!attributes.company) {
+        return {error: 'missing company'};
     }
-    attributes.email = attributes.email.toLowerCase();
+    attributes.email = (attributes.email || "").toLowerCase();
     const companyName = attributes.company;
     const company = await database.findCompanyByName(companyName);
     delete attributes.company;
